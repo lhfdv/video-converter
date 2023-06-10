@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Video Converter</title>
+    <title>Media Converter</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -48,10 +48,18 @@
 </head>
 <body>
     <div class="container">
-        <h1>Video Converter</h1>
+        <h1>Media Converter</h1>
         <form method="POST" action="/convert" enctype="multipart/form-data">
-            <label for="videoFile" class="form-label">Select a WebM video file:</label>
-            <input type="file" id="videoFile" name="webmFile" accept=".webm" required class="form-control">
+            <label for="mediaFile" class="form-label">Select a media file:</label>
+            <input type="file" id="mediaFile" name="mediaFile" accept=".webm, .mp4, .mkv, .avi, .mp3, .wav" required class="form-control">
+            <label for="outputFormat" class="form-label">Select output format:</label>
+            <select id="outputFormat" name="outputFormat" class="form-control">
+                <option value="mp4">MP4</option>
+                <option value="mkv">MKV</option>
+                <option value="avi">AVI</option>
+                <option value="mp3">MP3</option>
+                <option value="wav">WAV</option>
+            </select>
             <button type="submit" class="btn">Convert</button>
         </form>
     </div>
