@@ -54,13 +54,19 @@ def convert_file(file, filename, output_format):
 
     subprocess.run(command, shell=True, check=True)
 
-    return converted_filename
+    # Move or copy the converted file to a desired location
+    destination_path = f"converted/{converted_filename}"
+    shutil.move(converted_path, destination_path)
+
+    # Delete the original webm file
+    os.remove(media_path)
+
+    return destination_path
 
 def convert_cli(input_file: str, output_format: str, output_file: Optional[str] = None):
     if output_file is None:
         output_file = f"{os.path.splitext(input_file)[0]}.{output_format}"
     
-    # Extract the filename from the full file path
     input_filename = os.path.basename(input_file)
 
     with open(input_file, "rb") as file:
@@ -78,7 +84,6 @@ if __name__ == "__main__":
 
     if len(sys.argv) == 1:
         # No command-line arguments provided, start the web server
-        import uvicorn
         uvicorn.run(app, host="0.0.0.0", port=8000)
     else:
         # Command-line arguments provided, perform conversion

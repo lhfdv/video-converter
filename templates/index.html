@@ -1,5 +1,3 @@
-index.html
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -52,10 +50,10 @@ index.html
     <div class="container">
         <h1>Media Converter</h1>
         <form method="POST" action="/convert" enctype="multipart/form-data">
-            <label for="mediaFile" class="form-label">Select a media file:</label>
-            <input type="file" id="mediaFile" name="mediaFile" accept=".webm, .mp4, .mkv, .avi, .mp3, .wav" required class="form-control">
-            <label for="outputFormat" class="form-label">Select output format:</label>
-            <select id="outputFormat" name="outputFormat" class="form-control">
+            <label for="media_file" class="form-label">Select a media file:</label>
+            <input type="file" id="media_file" name="media_file" accept=".webm, .mp4, .mkv, .avi, .mp3, .wav" required class="form-control">
+            <label for="output_format" class="form-label">Select output format:</label>
+            <select id="output_format" name="output_format" required class="form-control">
                 <option value="mp4">MP4</option>
                 <option value="mkv">MKV</option>
                 <option value="avi">AVI</option>
